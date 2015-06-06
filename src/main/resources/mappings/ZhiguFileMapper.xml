@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiguw.file.mapper.ZhiguFileMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiguw.file.entity.ZhiguFile" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="userID" property="userID" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="fileType" property="fileType" jdbcType="BIT" />
+    <result column="uri" property="uri" jdbcType="VARCHAR" />
+    <result column="realPath" property="realPath" jdbcType="VARCHAR" />
+    <result column="imageWidth" property="imageWidth" jdbcType="INTEGER" />
+    <result column="imageHeight" property="imageHeight" jdbcType="INTEGER" />
+    <result column="size" property="size" jdbcType="BIGINT" />
+    <result column="specs" property="specs" jdbcType="VARCHAR" />
+    <result column="deleteFime" property="deleteFime" jdbcType="TIMESTAMP" />
+    <result column="deleteFlag" property="deleteFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userID, createTime, fileType, uri, realPath, imageWidth, imageHeight, size, specs, 
+    deleteFime, deleteFlag
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhigufile
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from zhigufile
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="add" parameterType="com.zhiguw.file.entity.ZhiguFile" useGeneratedKeys="true" keyProperty="id">
+    insert into zhigufile
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userID != null" >
+        userID,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="fileType != null" >
+        fileType,
+      </if>
+      <if test="uri != null" >
+        uri,
+      </if>
+      <if test="realPath != null" >
+        realPath,
+      </if>
+      <if test="imageWidth != null" >
+        imageWidth,
+      </if>
+      <if test="imageHeight != null" >
+        imageHeight,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="specs != null" >
+        specs,
+      </if>
+      <if test="deleteFime != null" >
+        deleteFime,
+      </if>
+      <if test="deleteFlag != null" >
+        deleteFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userID != null" >
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=BIT},
+      </if>
+      <if test="uri != null" >
+        #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="realPath != null" >
+        #{realPath,jdbcType=VARCHAR},
+      </if>
+      <if test="imageWidth != null" >
+        #{imageWidth,jdbcType=INTEGER},
+      </if>
+      <if test="imageHeight != null" >
+        #{imageHeight,jdbcType=INTEGER},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=BIGINT},
+      </if>
+      <if test="specs != null" >
+        #{specs,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFime != null" >
+        #{deleteFime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.zhiguw.file.entity.ZhiguFile" >
+    update zhigufile
+    <set >
+      <if test="userID != null" >
+        userID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileType != null" >
+        fileType = #{fileType,jdbcType=BIT},
+      </if>
+      <if test="uri != null" >
+        uri = #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="realPath != null" >
+        realPath = #{realPath,jdbcType=VARCHAR},
+      </if>
+      <if test="imageWidth != null" >
+        imageWidth = #{imageWidth,jdbcType=INTEGER},
+      </if>
+      <if test="imageHeight != null" >
+        imageHeight = #{imageHeight,jdbcType=INTEGER},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=BIGINT},
+      </if>
+      <if test="specs != null" >
+        specs = #{specs,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFime != null" >
+        deleteFime = #{deleteFime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        deleteFlag = #{deleteFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
