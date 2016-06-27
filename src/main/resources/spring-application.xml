@@ -31,7 +31,7 @@
 		<property name="timeBetweenEvictionRunsMillis" value="60000" />
 		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
 		<property name="minEvictableIdleTimeMillis" value="300000" />
-		<property name="validationQuery" value="SELECT '9527" />
+		<property name="validationQuery" value="SELECT 1" />
 		<property name="testWhileIdle" value="true" />
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
@@ -43,24 +43,24 @@
 		<property name="logAbandoned" value="true" />
 	</bean>
 
-	<bean id="pagePlugin" class="com.zhiguw.common.pulgins.mybatis.PagePlugin">
-		<property name="properties">
-			<props>
-				<prop key="dialect">mysql</prop>
-				<prop key="pageSqlId">.*Page$</prop>
-			</props>
-		</property>
-	</bean>
+<!--	<bean id="pagePlugin" class="com.zhiguw.common.pulgins.mybatis.PagePlugin"> -->
+	<!--	<property name="properties"> -->
+	<!--		<props> -->
+	<!--			<prop key="dialect">mysql</prop> -->
+	<!--			<prop key="pageSqlId">.*Page$</prop> -->
+	<!--		</props> -->
+	<!--	</property> -->
+<!--	</bean> -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动匹配Mapper映射文件 -->
 		<property name="mapperLocations" value="classpath:mappings/*Mapper.xml" />
 		<!-- <property name="typeAliasesPackage" value="com.zhiguw.file.entity" /> -->
-		<property name="plugins">
-			<array>
-				<ref bean="pagePlugin" />
-			</array>
-		</property>
+	<!--	<property name="plugins">-->
+	<!--		<array>-->
+	<!--			<ref bean="pagePlugin" />-->
+	<!--		</array>-->
+	<!--	</property>-->
 	</bean>
 	<!-- 通过扫描的模式，扫描目录在com.zhiguw.mapper目录下，所有的mapper都继承SqlMapper接口的接口， 这样一个bean就可以了 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
