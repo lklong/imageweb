@@ -18,8 +18,8 @@ http://www.springframework.org/schema/mvc
 		</property>
 	</bean>
 	<!-- ==============================全局异常配置==================== -->
-	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> -->
-	<bean id="exceptionResolver" class="com.zhiguw.common.pulgins.spring.CustomExceptionResolver">
+	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!--<bean id="exceptionResolver" class="com.zhiguw.common.pulgins.spring.CustomExceptionResolver">-->
 		<!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->
 		<!-- <property name="exceptionAttribute" value="ex"></property> -->
 		<!-- 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 -->
@@ -66,10 +66,10 @@ http://www.springframework.org/schema/mvc
 				<ref bean="mappingJacksonHttpMessageConverter" />
 			</list>
 		</property>
-		<property name="webBindingInitializer">
+		<!--<property name="webBindingInitializer"> -->
 			<!-- 这里注册自定义数据绑定类 日期传递[前台-后台] -->
-			<bean class="com.zhiguw.common.pulgins.spring.SpringMVCDateConverter" />
-		</property>
+		<!--	<bean class="com.zhiguw.common.pulgins.spring.SpringMVCDateConverter" /> -->
+		<!--</property> -->
 	</bean>
 	
 	<!-- ==================response返回字符串编码设置=================== -->
